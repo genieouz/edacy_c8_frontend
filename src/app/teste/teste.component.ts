@@ -36,6 +36,11 @@ export class TesteComponent implements OnInit {
     this.pizzaToUpdate = pizza;
   }
   editPizza(){
-    
+    let newData = {
+      nom: this.nom, 
+      taille: this.taille, 
+      description: this.description
+    }
+    this.testeService.editPizza(this.pizzaToUpdate.id, newData);
   }
 }

@@ -28,8 +28,41 @@
       <td>{{pizza.description}}</td>
       <td>
         <a href="javascript:;" (click)="supprimer(pizza.id)" class='text-danger'>del</a>
-        <a href="javascript:;" (click)="reInitializeForm(pizza)" class='text-info'> edit</a>
+        <a href="javascript:;" (click)="reInitializeForm(pizza)" data-toggle="modal" data-target="#editModal" class='text-info'> edit</a>
       </td>
     </tr>
   </tbody>
 </table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier la pizza</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="col-sm-8 offset-2">
+                <div class="form-group"> 
+                  <input type="text" name="nom" [(ngModel)]="nom" class="form-control" placeholder="Nom pizza">
+                </div>
+                <div class="form-group"> 
+                  <input type="text" name="taille" [(ngModel)]="taille" class="form-control" placeholder="taille pizza">
+                </div>
+                <div class="form-group"> 
+                  <input type="text" name="description" [(ngModel)]="description" class="form-control" placeholder="description pizza">
+                </div>
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+            <button (click)="pizzaToUpdate?editPizza():addPizza()" class="btn btn-success btn-block">{{pizzaToUpdate?'MODIFIER':'AJOUTER'}} LA PIZZA</button>
+            <button *ngIf="pizzaToUpdate" (click)="pizzaToUpdate=null; nom=''; description=''; taille=''" class="btn btn-danger btn-block">ANNULER</button>
+        </div>
+      </div>
+    </div>
+  </div>
