@@ -1,0 +1,16 @@
+<section class="profile-section">
+    <div class="profile-container">
+        <input type="text" #monInput>
+        <button (click)="addToList(monInput.value)">OK</button>
+        <div *ngFor="let personne of tab|search:searchValue; let i = index">
+            {{i+1}} - <b *ngIf="personToUpdate != i" (click)="personToUpdate = i; newValue=personne.prenom">{{personne.prenom}} </b>
+            <form>
+                <input name="newValue" [(ngModel)]="newValue" id="upd" *ngIf="personToUpdate == i;" type="text" value="{{personne.prenom}}"> 
+                <u (click)="update(i)"><i>modifier</i></u>
+            </form>
+        </div>
+    </div>
+    <form>
+        <input name="searchValue" [(ngModel)]="searchValue" placeholder="Rechercher">
+    </form>
+  </section>
