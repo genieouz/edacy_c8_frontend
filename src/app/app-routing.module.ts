@@ -9,6 +9,7 @@ import { DashbaordComponent } from './componenent/dashbaord/dashbaord.component'
 import {DetailsComponent} from './componenent/details/details.component';
 import {PageNotFoundComponent} from './componenent/page-not-found/page-not-found.component';
 import { AuthGuard } from './auth/auth.guard';
+import { TesteComponent } from './teste/teste.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'login',component:LoginComponent},
   {path:'dashbaord',component:DashbaordComponent,canActivate:[AuthGuard]},
+  {path: 'teste', component: TesteComponent},
   {path:'', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];

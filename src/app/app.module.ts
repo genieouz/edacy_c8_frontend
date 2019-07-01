@@ -14,6 +14,7 @@ import { DetailsComponent } from './componenent/details/details.component';
 import { PageNotFoundComponent } from './componenent/page-not-found/page-not-found.component';
 import { MeteoListComponent } from './componenent/meteo-list/meteo-list.component';
 import { SearchPipe } from './search.pipe';
+import { TesteComponent } from './teste/teste.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchPipe } from './search.pipe';
     DetailsComponent,
     PageNotFoundComponent,
     MeteoListComponent,
-    SearchPipe
+    SearchPipe,
+    TesteComponent
   ],
   imports: [
     BrowserModule,
