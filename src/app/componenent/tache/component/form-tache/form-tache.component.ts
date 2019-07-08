@@ -1,5 +1,5 @@
 import { TacheService } from "./../../service/tache.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ["./form-tache.component.css"]
 })
 export class FormTacheComponent implements OnInit {
+  @Input() tache;
   form: FormGroup;
   constructor(private tacheService: TacheService) {}
 
@@ -16,10 +17,20 @@ export class FormTacheComponent implements OnInit {
   }
 
   initForm() {
+    let titre = "",
+      etat = "A faire";
+    if (this.tache) {
+      titre = this.tache.titre;
+      etat = this.tache.etat;
+    }
     this.form = new FormGroup({
-      titre: new FormControl("", Validators.required),
-      etat: new FormControl("A faire", Validators.required)
+      titre: new FormControl(titre, Validators.required),
+      etat: new FormControl(etat, Validators.required)
     });
+  }
+
+  ngOnChange() {
+    console.log("change ", this.tache);
   }
 
   addTache() {

@@ -11,7 +11,9 @@
       </select>
     </div>
     <div class="col-sm-2">
-      <button class="btn btn-primary btn-block">AJOUTER</button>
+      <button class="btn btn-primary btn-block">
+        {{ tache ? "MODIFIER" : "AJOUTER" }}
+      </button>
     </div>
   </div>
 </form>

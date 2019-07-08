@@ -13,4 +13,8 @@ export class ListTacheComponent implements OnInit {
   ngOnInit() {
     this.taches = this.tacheService.getTaches();
   }
+
+  removeTache(id) {
+    this.tacheService.removeTache(id);
+  }
 }
