@@ -1,0 +1,17 @@
+<form [formGroup]="form" (submit)="addTache()">
+  <div class="form-group row">
+    <div class="col-sm-5">
+      <input formControlName="titre" class="form-control" />
+    </div>
+    <div class="col-sm-5">
+      <select class="form-control" formControlName="etat">
+        <option value="A faire">A faire</option>
+        <option value="En cours">En cours</option>
+        <option value="Terminer">Terminer</option>
+      </select>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-primary btn-block">AJOUTER</button>
+    </div>
+  </div>
+</form>

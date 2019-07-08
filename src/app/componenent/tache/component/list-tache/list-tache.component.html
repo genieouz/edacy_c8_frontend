@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let tache of taches"
+    appEtatTache
+    [etat]="tache.etat"
+  >
+    <span class="float-left">{{ tache.titre }}</span>
+    <span class="float-right">{{ tache.etat }}</span>
+  </li>
+</ul>
