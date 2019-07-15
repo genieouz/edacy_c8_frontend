@@ -11,7 +11,14 @@ export class ListTacheComponent implements OnInit {
   constructor(private tacheService: TacheService) {}
 
   ngOnInit() {
-    this.taches = this.tacheService.getTaches();
+    this.tacheService.getTaches().subscribe(
+      (data: any) => {
+        this.taches = data;
+      },
+      error => {
+        console.log("le serveur a répondu mais ya une erreur ", error);
+      }
+    );
   }
 
   removeTache(id) {

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../../environments/environment";
 @Injectable({
   providedIn: "root"
 })
@@ -10,10 +11,10 @@ export class TacheService {
     { titre: "tache 3", etat: "A faire" },
     { titre: "tache 4", etat: "A faire" }
   ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getTaches() {
-    return this.taches;
+    return this.http.get(`${environment.BASE_API_URL}/tache`);
   }
 
   addTache(tache) {

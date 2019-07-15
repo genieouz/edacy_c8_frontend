@@ -19,7 +19,8 @@ import { TacheComponent } from "./componenent/tache/tache.component";
 import { ListTacheComponent } from "./componenent/tache/component/list-tache/list-tache.component";
 import { FormTacheComponent } from "./componenent/tache/component/form-tache/form-tache.component";
 import { EtatTacheDirective } from "./componenent/tache/directive/etat-tache.directive";
-
+import { EditTacheComponent } from "./componenent/tache/component/edit-tache/edit-tache.component";
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +38,16 @@ import { EtatTacheDirective } from "./componenent/tache/directive/etat-tache.dir
     TacheComponent,
     ListTacheComponent,
     FormTacheComponent,
-    EtatTacheDirective
+    EtatTacheDirective,
+    EditTacheComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

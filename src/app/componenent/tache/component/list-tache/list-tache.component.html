@@ -5,8 +5,8 @@
     appEtatTache
     [etat]="tache.etat"
   >
-    <span class="float-left">{{ tache.titre }}</span>
-    <span class="text-center">{{ tache.etat }}</span>
+    <span class="float-left col-sm-3">{{ tache.titre }}</span>
+    <span class="text-center col-sm-3">{{ tache.etat }}</span>
     <div class="float-right btn-group">
       <button routerLink="/tache/edit/{{ i }}" class="btn btn-primary">
         Modifer

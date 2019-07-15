@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from "./componenent/page-not-found/page-not-fou
 import { AuthGuard } from "./auth/auth.guard";
 import { TesteComponent } from "./teste/teste.component";
 import { TacheComponent } from "./componenent/tache/tache.component";
+import { EditTacheComponent } from "./componenent/tache/component/edit-tache/edit-tache.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   },
   { path: "teste", component: TesteComponent },
   { path: "tache", component: TacheComponent },
+  { path: "tache/edit/:id", component: EditTacheComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent }
 ];
