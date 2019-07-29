@@ -16,7 +16,9 @@ export class TacheService {
   getTaches() {
     return this.http.get(`${environment.BASE_API_URL}/tache`);
   }
-
+  getTache(id) {
+    return this.http.get(`${environment.BASE_API_URL}/tache/${id}`);
+  }
   addTache(tache) {
     this.taches.push(tache);
   }

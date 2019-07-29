@@ -24,11 +24,26 @@ export class FormTacheComponent implements OnInit {
       etat = this.tache.etat;
     }
     this.form = new FormGroup({
-      titre: new FormControl(titre, Validators.required),
-      etat: new FormControl(etat, Validators.required)
+      titre: new FormControl(titre, [
+        Validators.required,
+        Validators.minLength(2)
+      ]),
+      etat: new FormControl(etat, Validators.required),
+      description: new FormControl("", [
+        Validators.required,
+        ,
+        Validators.minLength(5)
+      ])
     });
   }
 
+  get titre() {
+    return this.form.get("titre");
+  }
+
+  get description() {
+    return this.form.get("description");
+  }
   ngOnChange() {
     console.log("change ", this.tache);
   }

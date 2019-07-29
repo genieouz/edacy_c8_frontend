@@ -1,5 +1,6 @@
 import { TacheService } from "../../service/tache.service";
 import { Component, OnInit } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-list-tache",
@@ -13,9 +14,9 @@ export class ListTacheComponent implements OnInit {
   ngOnInit() {
     this.tacheService.getTaches().subscribe(
       (data: any) => {
-        this.taches = data;
+        this.taches = data.message;
       },
-      error => {
+      (error: HttpErrorResponse) => {
         console.log("le serveur a répondu mais ya une erreur ", error);
       }
     );

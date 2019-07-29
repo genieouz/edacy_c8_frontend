@@ -18,6 +18,9 @@ export class EditTacheComponent implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get("id");
-    this.tache = this.tacheService.getTaches()[id];
+    this.tacheService.getTache(id).subscribe((data: any) => {
+      this.tache = data.message;
+      console.log("voici la tache ", this.tache);
+    });
   }
 }
